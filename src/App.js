@@ -12,53 +12,59 @@ const Div = styled.div `
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      balance: 10000,
-      coinData: [
-          {
-            name: 'Bitcoin',
-            ticker: 'BTC',
-            price: 39999.99
-          },
-          {
-            name: 'Ethereum',
-            ticker: 'ETH',
-            price: 2999.99
-          },
-          {
-            name: 'Tether',
-            ticker: 'USDT',
-            price: 1.00
-          },
-          {
-            name: 'Ripple',
-            ticker: 'XRP',
-            price: 1.65
-          },
-          {
-            name: 'Cardano',
-            ticker: 'ADA',
-            price: 1.32
-          }
-      ]
-    }
-    this.handleRefresh = this.handleRefresh.bind(this);
+  state = {
+    balance: 10000,
+    showBalance: true,
+    coinData: [
+        {
+          name: 'Bitcoin',
+          ticker: 'BTC',
+          balance: 0.5,
+          price: 39999.99
+        },
+        {
+          name: 'Ethereum',
+          ticker: 'ETH',
+          balance: 32,
+          price: 2999.99
+        },
+        {
+          name: 'Tether',
+          ticker: 'USDT',
+          balance: 168,
+          price: 1.00
+        },
+        {
+          name: 'Ripple',
+          ticker: 'XRP',
+          balance: 246,
+          price: 1.65
+        },
+        {
+          name: 'Cardano',
+          ticker: 'ADA',
+          balance: 239,
+          price: 1.32
+        }
+    ]
+  }
+  handleBalanceVisibilityChange = () => {
+    this.setState( function(oldState) {
+      return {
+        ...oldState, // Diger tum stateleri ayni sekilde getir
+        showBalance : !oldState.showBalance // Tersini getir
+      }
+    })
   }
 
-  handleRefresh(valueChangeTicker) {
-    const newCoinData = this.state.coinData.map( function ( {ticker, name, price} ) {
-      let newPrice = price;
-      if( valueChangeTicker === ticker) {
+  handleRefresh = (valueChangeTicker) => {
+    const newCoinData = this.state.coinData.map( function ( values ) {
+      let newValues = {...values};
+      if( valueChangeTicker === values.ticker) {
         const randomPercentage = 0.995 + Math.random() * 0.01;
-        newPrice = newPrice * randomPercentage
+        newValues.price *= randomPercentage
       } 
-      return {
-        ticker,
-        name,
-        price: newPrice
-      }     
+      return newValues;     
     });
 
     this.setState({ coinData : newCoinData });
@@ -69,8 +75,12 @@ class App extends React.Component {
     return (
       <Div >
           <ExchangeHeader/>
-          <AccountBalance amount={this.state.balance} />
-          <CoinList coinData={this.state.coinData} handleRefresh={this.handleRefresh} />      
+          <AccountBalance amount={this.state.balance} 
+                          showBalance={this.state.showBalance}
+                          handleBalanceVisibilityChange={this.handleBalanceVisibilityChange}  />
+          <CoinList coinData={this.state.coinData} 
+                    handleRefresh={this.handleRefresh}
+                    showBalance={this.state.showBalance} />      
       </Div>
     );
   }  
