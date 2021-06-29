@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/coin-exchange-website/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/coin-exchange-website/static/js/main.e868175b.chunk.js",
+    "main.js.map": "/coin-exchange-website/static/js/main.e868175b.chunk.js.map",
+    "runtime-main.js": "/coin-exchange-website/static/js/runtime-main.553b248c.js",
+    "runtime-main.js.map": "/coin-exchange-website/static/js/runtime-main.553b248c.js.map",
+    "static/js/2.2fd14832.chunk.js": "/coin-exchange-website/static/js/2.2fd14832.chunk.js",
+    "static/js/2.2fd14832.chunk.js.map": "/coin-exchange-website/static/js/2.2fd14832.chunk.js.map",
+    "index.html": "/coin-exchange-website/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/coin-exchange-website/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.2fd14832.chunk.js.LICENSE.txt": "/coin-exchange-website/static/js/2.2fd14832.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/coin-exchange-website/static/media/logo.103b5fa1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.553b248c.js",
+    "static/js/2.2fd14832.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.e868175b.chunk.js"
+  ]
+}
