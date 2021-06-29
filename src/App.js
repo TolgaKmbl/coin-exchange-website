@@ -34,7 +34,7 @@ class App extends React.Component {
           },
           {
             name: 'Ripple',
-            ticker: 'BXRPTC',
+            ticker: 'XRP',
             price: 1.65
           },
           {
@@ -44,6 +44,25 @@ class App extends React.Component {
           }
       ]
     }
+    this.handleRefresh = this.handleRefresh.bind(this);
+  }
+
+  handleRefresh(valueChangeTicker) {
+    const newCoinData = this.state.coinData.map( function ( {ticker, name, price} ) {
+      let newPrice = price;
+      if( valueChangeTicker === ticker) {
+        const randomPercentage = 0.995 + Math.random() * 0.01;
+        newPrice = newPrice * randomPercentage
+      } 
+      return {
+        ticker,
+        name,
+        price: newPrice
+      }     
+    });
+
+    this.setState({ coinData : newCoinData });
+    
   }
 
   render() {
@@ -51,7 +70,7 @@ class App extends React.Component {
       <Div >
           <ExchangeHeader/>
           <AccountBalance amount={this.state.balance} />
-          <CoinList coinData={this.state.coinData} />      
+          <CoinList coinData={this.state.coinData} handleRefresh={this.handleRefresh} />      
       </Div>
     );
   }  
