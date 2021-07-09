@@ -3,13 +3,14 @@ import logo from './logo.svg';
 import styled from 'styled-components';
 
 const Img = styled.img`
-    height: 8rem;
+    height: 9rem;
     pointer-events: none;
 `;
 
 const Header = styled.header`
-    background-color: #282c34;
-    min-height: 20vh;
+    background-color: #282c4e;
+    min-height: 10vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,7 +19,10 @@ const Header = styled.header`
 `;
 
 const H1 = styled.h1`
-    font-size: 4rem;
+    font-size: 3rem; 
+    line-height: 9rem;
+    font-weight: bold;
+    min-width: 300px; 
 `;
 
 export default class ExchangeHeader extends Component {
