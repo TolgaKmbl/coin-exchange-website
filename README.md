@@ -1,4 +1,4 @@
-# [Check the website out](https://tolgakmbl.github.io/coin-exchange-website/)
+# [Check the website out](https://tolgakmbl.github.io/coin-exchange-website/) with the real-time cryptocurrency prices
 
 # Getting Started with Create React App
 
